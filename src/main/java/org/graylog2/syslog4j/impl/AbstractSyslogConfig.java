@@ -21,7 +21,7 @@ import org.graylog2.syslog4j.util.SyslogUtility;
  * @author &lt;syslog4j@productivity.org&gt;
  * @version $Id: AbstractSyslogConfig.java,v 1.24 2010/11/28 04:43:31 cvs Exp $
  */
-public abstract class AbstractSyslogConfig implements AbstractSyslogConfigIF {
+public abstract class AbstractSyslogConfig implements AbstractSyslogConfigIF, org.productivity.java.syslog4j.SyslogConfigIF {
     private static final long serialVersionUID = -3728308557871358111L;
 
     protected final static List defaultBackLogHandlers = new ArrayList();
@@ -30,38 +30,38 @@ public abstract class AbstractSyslogConfig implements AbstractSyslogConfigIF {
         defaultBackLogHandlers.add(new SystemErrSyslogBackLogHandler());
     }
 
-    protected int facility = SYSLOG_FACILITY_DEFAULT;
+    protected int facility = SyslogConstants.SYSLOG_FACILITY_DEFAULT;
 
-    protected String charSet = CHAR_SET_DEFAULT;
+    protected String charSet = SyslogConstants.CHAR_SET_DEFAULT;
 
     protected String ident = "";
 
     protected String localName = null;
 
-    protected boolean sendLocalTimestamp = SEND_LOCAL_TIMESTAMP_DEFAULT;
-    protected boolean sendLocalName = SEND_LOCAL_NAME_DEFAULT;
+    protected boolean sendLocalTimestamp = SyslogConstants.SEND_LOCAL_TIMESTAMP_DEFAULT;
+    protected boolean sendLocalName = SyslogConstants.SEND_LOCAL_NAME_DEFAULT;
 
-    protected boolean includeIdentInMessageModifier = INCLUDE_IDENT_IN_MESSAGE_MODIFIER_DEFAULT;
-    protected boolean throwExceptionOnWrite = THROW_EXCEPTION_ON_WRITE_DEFAULT;
-    protected boolean throwExceptionOnInitialize = THROW_EXCEPTION_ON_INITIALIZE_DEFAULT;
+    protected boolean includeIdentInMessageModifier = SyslogConstants.INCLUDE_IDENT_IN_MESSAGE_MODIFIER_DEFAULT;
+    protected boolean throwExceptionOnWrite = SyslogConstants.THROW_EXCEPTION_ON_WRITE_DEFAULT;
+    protected boolean throwExceptionOnInitialize = SyslogConstants.THROW_EXCEPTION_ON_INITIALIZE_DEFAULT;
 
-    protected int maxMessageLength = MAX_MESSAGE_LENGTH_DEFAULT;
-    protected byte[] splitMessageBeginText = SPLIT_MESSAGE_BEGIN_TEXT_DEFAULT.getBytes();
-    protected byte[] splitMessageEndText = SPLIT_MESSAGE_END_TEXT_DEFAULT.getBytes();
+    protected int maxMessageLength = SyslogConstants.MAX_MESSAGE_LENGTH_DEFAULT;
+    protected byte[] splitMessageBeginText = SyslogConstants.SPLIT_MESSAGE_BEGIN_TEXT_DEFAULT.getBytes();
+    protected byte[] splitMessageEndText = SyslogConstants.SPLIT_MESSAGE_END_TEXT_DEFAULT.getBytes();
 
     protected List messageModifiers = null;
     protected List backLogHandlers = null;
 
-    protected boolean threaded = THREADED_DEFAULT;
+    protected boolean threaded = SyslogConstants.THREADED_DEFAULT;
     protected boolean useDaemonThread = USE_DAEMON_THREAD_DEFAULT;
     protected int threadPriority = THREAD_PRIORITY_DEFAULT;
-    protected long threadLoopInterval = THREAD_LOOP_INTERVAL_DEFAULT;
+    protected long threadLoopInterval = SyslogConstants.THREAD_LOOP_INTERVAL_DEFAULT;
 
-    protected int writeRetries = WRITE_RETRIES_DEFAULT;
-    protected long maxShutdownWait = MAX_SHUTDOWN_WAIT_DEFAULT;
+    protected int writeRetries = SyslogConstants.WRITE_RETRIES_DEFAULT;
+    protected long maxShutdownWait = SyslogConstants.MAX_SHUTDOWN_WAIT_DEFAULT;
 
-    protected boolean truncateMessage = TRUNCATE_MESSAGE_DEFAULT;
-    protected boolean useStructuredData = USE_STRUCTURED_DATA_DEFAULT;
+    protected boolean truncateMessage = SyslogConstants.TRUNCATE_MESSAGE_DEFAULT;
+    protected boolean useStructuredData = SyslogConstants.USE_STRUCTURED_DATA_DEFAULT;
 
     public abstract Class getSyslogClass();
 

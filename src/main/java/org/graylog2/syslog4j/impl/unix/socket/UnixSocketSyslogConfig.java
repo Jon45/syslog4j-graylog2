@@ -1,7 +1,10 @@
 package org.graylog2.syslog4j.impl.unix.socket;
 
+import org.graylog2.syslog4j.SyslogConstants;
 import org.graylog2.syslog4j.SyslogRuntimeException;
 import org.graylog2.syslog4j.impl.AbstractSyslogConfig;
+import org.productivity.java.syslog4j.SyslogBackLogHandlerIF;
+import org.productivity.java.syslog4j.SyslogMessageModifierIF;
 
 /**
  * UnixSocketSyslogConfig is an extension of AbstractNetSyslogConfig that provides
@@ -19,9 +22,9 @@ public class UnixSocketSyslogConfig extends AbstractSyslogConfig {
 
     protected int type = SYSLOG_SOCKET_TYPE_DEFAULT;
     protected short family = SYSLOG_SOCKET_FAMILY_DEFAULT;
-    protected int protocol = SYSLOG_SOCKET_PROTOCOL_DEFAULT;
-    protected String library = SYSLOG_SOCKET_LIBRARY_DEFAULT;
-    protected String path = SYSLOG_SOCKET_PATH_DEFAULT;
+    protected int protocol = SyslogConstants.SYSLOG_SOCKET_PROTOCOL_DEFAULT;
+    protected String library = SyslogConstants.SYSLOG_SOCKET_LIBRARY_DEFAULT;
+    protected String path = SyslogConstants.SYSLOG_SOCKET_PATH_DEFAULT;
 
     public UnixSocketSyslogConfig() {
         // Unix-based socket does not need localName sent
@@ -58,6 +61,36 @@ public class UnixSocketSyslogConfig extends AbstractSyslogConfig {
         throw new SyslogRuntimeException("Host not appropriate for class \"" + this.getClass().getName() + "\"");
     }
 
+    @Override
+    public void addMessageModifier(SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void insertMessageModifier(int index, SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void removeMessageModifier(SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void addBackLogHandler(SyslogBackLogHandlerIF backLogHandler) {
+
+    }
+
+    @Override
+    public void insertBackLogHandler(int index, SyslogBackLogHandlerIF backLogHandler) {
+
+    }
+
+    @Override
+    public void removeBackLogHandler(SyslogBackLogHandlerIF backLogHandler) {
+
+    }
+
     public void setPort(int port) throws SyslogRuntimeException {
         throw new SyslogRuntimeException("Port not appropriate for class \"" + this.getClass().getName() + "\"");
     }
@@ -92,10 +125,10 @@ public class UnixSocketSyslogConfig extends AbstractSyslogConfig {
         }
 
         if ("SOCK_STREAM".equalsIgnoreCase(type.trim())) {
-            this.type = SOCK_STREAM;
+            this.type = SyslogConstants.SOCK_STREAM;
 
         } else if ("SOCK_DGRAM".equalsIgnoreCase(type.trim())) {
-            this.type = SOCK_DGRAM;
+            this.type = SyslogConstants.SOCK_DGRAM;
 
         } else {
             throw new SyslogRuntimeException("Type must be \"SOCK_STREAM\" or \"SOCK_DGRAM\" for class \"" + this.getClass().getName() + "\"");
@@ -116,7 +149,7 @@ public class UnixSocketSyslogConfig extends AbstractSyslogConfig {
         }
 
         if ("AF_UNIX".equalsIgnoreCase(family.trim())) {
-            this.family = AF_UNIX;
+            this.family = SyslogConstants.AF_UNIX;
 
         } else {
             throw new SyslogRuntimeException("Family must be \"AF_UNIX\" for class \"" + this.getClass().getName() + "\"");

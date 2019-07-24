@@ -1,5 +1,6 @@
 package org.graylog2.syslog4j.impl.net;
 
+import org.graylog2.syslog4j.SyslogConstants;
 import org.graylog2.syslog4j.impl.AbstractSyslogConfig;
 
 /**
@@ -16,10 +17,10 @@ import org.graylog2.syslog4j.impl.AbstractSyslogConfig;
 public abstract class AbstractNetSyslogConfig extends AbstractSyslogConfig implements AbstractNetSyslogConfigIF {
     private static final long serialVersionUID = 7240133962159244924L;
 
-    protected String host = SYSLOG_HOST_DEFAULT;
-    protected int port = SYSLOG_PORT_DEFAULT;
+    protected String host = SyslogConstants.SYSLOG_HOST_DEFAULT;
+    protected int port = SyslogConstants.SYSLOG_PORT_DEFAULT;
 
-    protected boolean cacheHostAddress = CACHE_HOST_ADDRESS_DEFAULT;
+    protected boolean cacheHostAddress = SyslogConstants.CACHE_HOST_ADDRESS_DEFAULT;
 
     protected int maxQueueSize = MAX_QUEUE_SIZE_DEFAULT;
 

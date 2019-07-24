@@ -1,6 +1,8 @@
 package org.graylog2.syslog4j.impl.net.udp;
 
 import org.graylog2.syslog4j.impl.net.AbstractNetSyslogConfig;
+import org.productivity.java.syslog4j.SyslogBackLogHandlerIF;
+import org.productivity.java.syslog4j.SyslogMessageModifierIF;
 
 /**
  * UDPNetSyslogConfig is an extension of AbstractNetSyslogConfig that provides
@@ -42,5 +44,35 @@ public class UDPNetSyslogConfig extends AbstractNetSyslogConfig {
 
     public Class getSyslogClass() {
         return UDPNetSyslog.class;
+    }
+
+    @Override
+    public void addMessageModifier(SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void insertMessageModifier(int index, SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void removeMessageModifier(SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void addBackLogHandler(SyslogBackLogHandlerIF backLogHandler) {
+
+    }
+
+    @Override
+    public void insertBackLogHandler(int index, SyslogBackLogHandlerIF backLogHandler) {
+
+    }
+
+    @Override
+    public void removeBackLogHandler(SyslogBackLogHandlerIF backLogHandler) {
+
     }
 }

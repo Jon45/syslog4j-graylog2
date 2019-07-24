@@ -3,6 +3,8 @@ package org.graylog2.syslog4j.impl.net.tcp;
 import org.graylog2.syslog4j.SyslogConstants;
 import org.graylog2.syslog4j.impl.net.AbstractNetSyslogConfig;
 import org.graylog2.syslog4j.util.SyslogUtility;
+import org.productivity.java.syslog4j.SyslogBackLogHandlerIF;
+import org.productivity.java.syslog4j.SyslogMessageModifierIF;
 
 /**
  * TCPNetSyslogConfig is an extension of AbstractNetSyslogConfig that provides
@@ -32,16 +34,16 @@ public class TCPNetSyslogConfig extends AbstractNetSyslogConfig implements TCPNe
 
     protected byte[] delimiterSequence = SYSTEM_DELIMITER_SEQUENCE;
 
-    protected boolean persistentConnection = TCP_PERSISTENT_CONNECTION_DEFAULT;
+    protected boolean persistentConnection = SyslogConstants.TCP_PERSISTENT_CONNECTION_DEFAULT;
 
-    protected boolean soLinger = TCP_SO_LINGER_DEFAULT;
-    protected int soLingerSeconds = TCP_SO_LINGER_SECONDS_DEFAULT;
+    protected boolean soLinger = SyslogConstants.TCP_SO_LINGER_DEFAULT;
+    protected int soLingerSeconds = SyslogConstants.TCP_SO_LINGER_SECONDS_DEFAULT;
 
-    protected boolean keepAlive = TCP_KEEP_ALIVE_DEFAULT;
+    protected boolean keepAlive = SyslogConstants.TCP_KEEP_ALIVE_DEFAULT;
 
-    protected boolean reuseAddress = TCP_REUSE_ADDRESS_DEFAULT;
+    protected boolean reuseAddress = SyslogConstants.TCP_REUSE_ADDRESS_DEFAULT;
 
-    protected boolean setBufferSize = TCP_SET_BUFFER_SIZE_DEFAULT;
+    protected boolean setBufferSize = SyslogConstants.TCP_SET_BUFFER_SIZE_DEFAULT;
 
     protected int freshConnectionInterval = TCP_FRESH_CONNECTION_INTERVAL_DEFAULT;
 
@@ -91,6 +93,36 @@ public class TCPNetSyslogConfig extends AbstractNetSyslogConfig implements TCPNe
 
     public Class getSyslogClass() {
         return TCPNetSyslog.class;
+    }
+
+    @Override
+    public void addMessageModifier(SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void insertMessageModifier(int index, SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void removeMessageModifier(SyslogMessageModifierIF messageModifier) {
+
+    }
+
+    @Override
+    public void addBackLogHandler(SyslogBackLogHandlerIF backLogHandler) {
+
+    }
+
+    @Override
+    public void insertBackLogHandler(int index, SyslogBackLogHandlerIF backLogHandler) {
+
+    }
+
+    @Override
+    public void removeBackLogHandler(SyslogBackLogHandlerIF backLogHandler) {
+
     }
 
     public byte[] getDelimiterSequence() {

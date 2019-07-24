@@ -1,6 +1,7 @@
 package org.graylog2.syslog4j.impl.net.tcp.pool;
 
 import org.apache.commons.pool.impl.GenericObjectPool;
+import org.graylog2.syslog4j.SyslogConstants;
 import org.graylog2.syslog4j.SyslogPoolConfigIF;
 import org.graylog2.syslog4j.impl.net.tcp.TCPNetSyslogConfig;
 
@@ -18,18 +19,18 @@ import org.graylog2.syslog4j.impl.net.tcp.TCPNetSyslogConfig;
 public class PooledTCPNetSyslogConfig extends TCPNetSyslogConfig implements SyslogPoolConfigIF {
     private static final long serialVersionUID = 2283355983363422888L;
 
-    protected int maxActive = SYSLOG_POOL_CONFIG_MAX_ACTIVE_DEFAULT;
-    protected int maxIdle = SYSLOG_POOL_CONFIG_MAX_IDLE_DEFAULT;
-    protected long maxWait = SYSLOG_POOL_CONFIG_MAX_WAIT_DEFAULT;
-    protected long minEvictableIdleTimeMillis = SYSLOG_POOL_CONFIG_MIN_EVICTABLE_IDLE_TIME_MILLIS_DEFAULT;
-    protected int minIdle = SYSLOG_POOL_CONFIG_MIN_IDLE_DEFAULT;
-    protected int numTestsPerEvictionRun = SYSLOG_POOL_CONFIG_NUM_TESTS_PER_EVICTION_RUN_DEFAULT;
-    protected long softMinEvictableIdleTimeMillis = SYSLOG_POOL_CONFIG_SOFT_MIN_EVICTABLE_IDLE_TIME_MILLIS_DEFAULT;
-    protected long timeBetweenEvictionRunsMillis = SYSLOG_POOL_CONFIG_TIME_BETWEEN_EVICTION_RUNS_MILLIS_DEFAULT;
+    protected int maxActive = SyslogConstants.SYSLOG_POOL_CONFIG_MAX_ACTIVE_DEFAULT;
+    protected int maxIdle = SyslogConstants.SYSLOG_POOL_CONFIG_MAX_IDLE_DEFAULT;
+    protected long maxWait = SyslogConstants.SYSLOG_POOL_CONFIG_MAX_WAIT_DEFAULT;
+    protected long minEvictableIdleTimeMillis = SyslogConstants.SYSLOG_POOL_CONFIG_MIN_EVICTABLE_IDLE_TIME_MILLIS_DEFAULT;
+    protected int minIdle = SyslogConstants.SYSLOG_POOL_CONFIG_MIN_IDLE_DEFAULT;
+    protected int numTestsPerEvictionRun = SyslogConstants.SYSLOG_POOL_CONFIG_NUM_TESTS_PER_EVICTION_RUN_DEFAULT;
+    protected long softMinEvictableIdleTimeMillis = SyslogConstants.SYSLOG_POOL_CONFIG_SOFT_MIN_EVICTABLE_IDLE_TIME_MILLIS_DEFAULT;
+    protected long timeBetweenEvictionRunsMillis = SyslogConstants.SYSLOG_POOL_CONFIG_TIME_BETWEEN_EVICTION_RUNS_MILLIS_DEFAULT;
     protected byte whenExhaustedAction = GenericObjectPool.WHEN_EXHAUSTED_BLOCK;
-    protected boolean testOnBorrow = SYSLOG_POOL_CONFIG_TEST_ON_BORROW_DEFAULT;
-    protected boolean testOnReturn = SYSLOG_POOL_CONFIG_TEST_ON_RETURN_DEFAULT;
-    protected boolean testWhileIdle = SYSLOG_POOL_CONFIG_TEST_WHILE_IDLE_DEFAULT;
+    protected boolean testOnBorrow = SyslogConstants.SYSLOG_POOL_CONFIG_TEST_ON_BORROW_DEFAULT;
+    protected boolean testOnReturn = SyslogConstants.SYSLOG_POOL_CONFIG_TEST_ON_RETURN_DEFAULT;
+    protected boolean testWhileIdle = SyslogConstants.SYSLOG_POOL_CONFIG_TEST_WHILE_IDLE_DEFAULT;
 
     public PooledTCPNetSyslogConfig() {
         //
